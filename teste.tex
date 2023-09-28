@@ -1,0 +1,154 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}% Para a região de matemática.
+\usepackage{hyperref} % para usarmos links
+\graphicspath{{images/}} %configurando o pacote de graphicx, aqui referenciamos para o código onde nosso banco de imagens está! Por exemplo, nesta linha, temos o banco de imagens referenciado na pasta "Images"
+
+\title{Aprendendo Latex}
+\author{Faezinn\thanks{Wytler me fez aprender.}}
+\date{September 2023}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+Primeiro documento de teste do latex. É engraçado o fato de só poder tacar as palavras aqui dentro. 
+
+% no Latex, comentamos usando o %. É meio estranho, mas funciona!
+
+- Alguns comandos básicos do LATex:
+
+\begin{itemize}
+    \item \textbf{Negrito:} utilizamos o negrito pelo comando textbf
+    \item \textit{Italico:} utilizamos o itálico pelo comando textit
+    \item \underline{Underline:} utilizamos a função underline pelo comando underline
+    \item Podemos também utilizar o \emph{emph} para enfatizar algo.
+
+\end{itemize}
+
+\section{Imagens}
+
+O uso de imagens é um pouco complicado.
+
+Vou tentar aplicar o quê descobri estudando:
+
+\begin{figure}[h]
+    \centering % centraliza a imagem no documento.
+    \includegraphics[width=0.30\textwidth]{Images/naruto feliz.jpeg} % inclui a imagem e organiza o tamanho dela.
+    \caption{Naruto aprova este documento} % cria uma legenda para a imagem
+    \label{fig:naruto feliz}
+\end{figure}
+
+% \includegraphics{Images/naruto feliz.jpeg} aqui, escolhemos a imagem no pacote images.
+
+Usando \textbf{includegraphics} é possivel colocar imagens no documento.
+
+Mas criar uma \textbf{área} para a figura é mais efetivo, usando begin{figure} e adicionando as informações de interesse, como tamanho, legenda e nome da imagem. 
+
+\ref{fig:naruto feliz}.narutofeliz % referencia o numero da figura.
+
+\section{Listas}
+
+É possível criar listas utilizando os seguintes comandos:
+\begin{enumerate}
+    \item Utilizando begin{\textit{Alguma-coisa}}para começar o local da lista
+    \item Utilizando \textit{Enumerate} como argumento do begin para numerar os itens da lista
+    \item Utilziando \textit{Itemize} no argumento para listar com a "bolinha"
+\end{enumerate}
+
+\section{Utilizando Matemática}
+
+Na matemática do LATEX, podemos utilizar vários comandos para fazer o "typeset":
+
+\begin{itemize}
+    \item Utilizando \verb|\(texto\)|, que gera:
+        \begin{enumerate}
+            \item \(E = M*C^2\)
+            \item \(A^2 = B^2 + C^2\)
+        \end{enumerate}
+    \item Utilizando \verb|$texto$|, que também gera:
+        \begin{enumerate}
+            \item $E = M*C^2$
+            \item $A^2 = B^2 + C^2$
+        \end{enumerate}
+    \item Ou utilizando begin(math), que também gera:
+        \begin{enumerate}
+            \item \begin{math}
+                E = M*C^2
+            \end{math}
+            \item \begin{math}
+                A^2 = B^2 + C^2
+            \end{math}
+        \end{enumerate}  
+\end{itemize}
+Para centralizar a equação, utilizamos begin(equation), que gera:
+\[E = M*C^2\]
+
+\subsection{Termos Importantes}
+Existem milhares de termos de matemática que podem ser listados e estudados para LATEX, como:
+    \begin{enumerate}
+        \item Numeros/variáveis evelados, $A^B$, ou sublinhados, $A_B$, de outros números/variáveis.
+        \begin{itemize}
+            \item Que podem ser combinados, como no caso:
+            \[T^{i_1 i_2 \dots i_x}_{j^1 j^2 \dots j^y} = 0\]
+        \end{itemize}
+        \item Escrevemos integrais com \verb|$\int$| e frações com \verb|$\frac{a}{b}$|
+        \begin{itemize}
+            \item Os limites da integral podem utilizar do item \textbf{1.} para serem definidos, como em:
+            \[ \int_0^2 \frac{dx}{dt} = \frac{a^2}{b^2}\]
+        \end{itemize}
+        \item Também podemos definir raizes quadradas usando sqrt, como em:
+        \[\sqrt{A + B} = C\]
+    \end{enumerate}
+
+\section{Estruturas básicas do Documento}
+Artigos científicos normalmente utilizam várias estruturas, então aqui está algumas delas:
+\begin{abstract}
+    Aqui, em \textbf{Abstract}, normalmente temos um resumo geral do assunto. Algo breve, que fale sobre o documento como um todo.
+\end{abstract}
+
+Depois do resumo, é possível começar o primeiro parágrafo. Pressione "enter" duas vezes para começar o segundo.
+
+Aqui, por exemplo, temos o segundo parágrafo.
+
+E aqui começamos o terceiro. Você pode utilizar \verb|\\| para \\ realizar uma quebra de linha, mas continuar no mesmo parágrafo. Em adição, a função \verb|\Newline| \newline também pode ser utilizada.
+
+\section{Criando Tabelas}
+Podemos criar uma simples tabela como esta:
+\begin{center}
+\begin{tabular}{c c c}
+ cell1 & cell2 & cell3 \\ 
+ cell4 & cell5 & cell6 \\  
+ cell7 & cell8 & cell9    
+\end{tabular}
+\end{center}
+Utilizando os comandos \verb|\begin{center}|, acompanhados de \verb|\begin{tabular}{c c c}|, onde "c c c" significa o uso de três colunas, e, por fim, utilizando "nome-célula$1$" \verb|&| "nome-célula$2$" \dots \space para criar os valores de cada célula.
+
+Para criar uma tabela com bordas e limitações, como em:
+\begin{center}
+\begin{tabular}{|c|c|c|} 
+ \hline
+ cell1 & cell2 & cell3 \\ 
+ \hline
+ cell4 & cell5 & cell6 \\ 
+ \hline
+ cell7 & cell8 & cell9 \\ 
+ \hline
+\end{tabular}
+\end{center}
+Podemos utilizar \textbf{uma barra reta} entre os "c's" para definir a divisão das colunas, e \verb|\hline| para as linhas horizontais.
+
+\section{Bibliografia importante}
+Alguns links úteis para depois:
+\begin{itemize}
+    \item \href{https://www.overleaf.com/learn/latex/Mathematical_expressions}{Expressões matemáticas em LATEX}
+    \item \href{https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols}{Lista de letras gregas e símbolos matemáticos}
+    \item \href{https://www.overleaf.com/learn/latex/Paragraphs_and_new_lines}{Parágrafos e Linhas}
+    \item \href{https://www.tablesgenerator.com/}{Gerador de imagens em Latex}
+\end{itemize}
+
+\end{document}
